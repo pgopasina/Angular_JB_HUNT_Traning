@@ -1,0 +1,19 @@
+table,
+th,
+td {
+    text-align: center;
+    top: 0;
+    padding: 20px;
+    margin-top: 30px;
+    width: fit-content;
+    border-radius: 7px;
+}
+table{
+border: 2px ridge;
+}
+th {
+    background-color: rgb(253, 253, 253);
+}
+td {
+    background-color: rgb(214, 213, 213);
+}

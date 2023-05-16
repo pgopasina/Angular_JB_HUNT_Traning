@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+    <p-card>
+        <h4>Sign-up</h4>
+        <form [formGroup]="registerform">
+            <div class="formgroup-inline">
+                <div class="field">
+                    Name:<br>
+                    <input formControlName="fullName" class="p-inputtext-sm" pInputText placeholder="Full name">
+                </div>
+                <div class="field">
+                    Email:<br>
+                    <input formControlName="email" class="p-inputtext-sm" pInputText placeholder="e-mail">
+                </div>
+            </div>
+            <div class="formgroup-inline">
+                <div class="field">
+                    Password:<br>
+                    <input type="password" formControlName="password" class="p-inputtext-sm" pInputText
+                        placeholder="Password">
+                </div>
+                <div class="field">
+                    confirm Password:<br>
+                    <input type="password" formControlName="confirm" class="p-inputtext-sm" pInputText
+                        placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="formgroup-inline">
+                <div class="field">
+                    <p-button label="Register" [disabled]="registerform.invalid" styleClass="p-button-sm"></p-button>
+                </div>
+                <p-button label=" Login with Google" *ngIf="!user" styleClass="p-button-sm" class="p-button-raised">
+                    <a (click)="loginWithGmail()">
+                        <img width="15px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                    </a>  
+                </p-button>
+            </div>
+            <!-- <button [disabled]="registerform.invalid" (click)="registerUser(registerform.value)">Register</button>  -->
+        </form>       
+        <pre></pre>
+        Already have account? <a routerLink="login">click here</a>
+    </p-card>
+</div>

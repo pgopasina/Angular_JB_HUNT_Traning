@@ -1,0 +1,59 @@
+<p-card>
+    <div class="grid ml-6 mt-3">
+        <div class="col">
+            <p-tree style="background-color: transparent;" [value]="data" selectionMode="single"
+                (onNodeSelect)="nodeSelect($event)">
+                <ng-template let-node pTemplate="default">
+                    <div class="grid bg-blue-900 border-3 border-round-right-3xl borderClass">
+                        <img class="border-3 m-1 w-4rem h-4rem border-circle" [src]="node.image">
+                        <div class="col">
+                            {{node.name}}<br>{{node.designation}}
+                        </div>
+                    </div>
+                </ng-template>
+            </p-tree>
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <div class="col-4" *ngIf="onToggleStatic">
+            <div class="grid align-self-center justify-content-center">
+                <div class="text-center">
+                    <img class="border-3 w-10rem h-10rem border-circle" src="{{data[0].children[0].children[0].image}}">
+                    <p class="font-bold text-2xl">{{data[0].children[0].children[0].CorpName}}</p>
+                    <p>{{data[0].children[0].children[0].designation}}</p>
+                    <p><i class="pi pi-phone text-blue-500"><span class="text-gray-900"> {{data[0].children[0].children[0].phoneNumber}}</span></i> &nbsp;
+                        &nbsp;<i class="pi pi-mobile text-blue-500"><span class="text-gray-900"> {{data[0].children[0].children[0].mobileNumber}}</span></i></p>
+                    <p>Reports To: {{data[0].children[0].children[0].reportTo}}</p>
+                    <p-button label="View Profile" styleClass="p-button-sm" (click)="showDialog()"></p-button>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" *ngIf="onToggleDynamic">
+            <div class="grid align-self-center justify-content-center">
+                <div class="text-center">
+                    <img class="border-3 w-10rem h-10rem border-circle" src="{{details?.image}}">
+                    <p class="font-bold text-2xl">{{details?.CorpName}}</p>
+                    <p>{{details?.designation}}</p>
+                    <p><i class="pi pi-phone"> {{details?.phoneNumber}}</i> &nbsp; &nbsp;<i class="pi pi-mobile">
+                            {{details?.mobileNumber}}</i></p>
+                    <p>Reports To: {{details?.reportTo}}</p>
+                    <p-button label="View Profile" styleClass="p-button-sm" (click)="showDialog()"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-card>
+
+
+<p-dialog [(visible)]="display" [style]="{width: '50vw'}">
+        <div class="grid align-self-center justify-content-center">
+            <div class="text-center">
+                <img class="border-3 w-10rem h-10rem border-circle" src="{{details?.image}}">
+                <p class="font-bold text-2xl">{{details?.CorpName}}</p>
+                <p>{{details?.designation}}</p>
+                <p><i class="pi pi-phone"> {{details?.phoneNumber}}</i> &nbsp; &nbsp;<i class="pi pi-mobile">
+                        {{details?.mobileNumber}}</i></p>
+                <p>Reports To: {{details?.reportTo}}</p>
+                <p-button label="View Profile" styleClass="p-button-sm" (click)="showDialog()"></p-button>
+            </div>
+        </div>
+</p-dialog>

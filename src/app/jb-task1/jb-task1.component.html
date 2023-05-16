@@ -1,0 +1,46 @@
+<p-table #dt [columns]="cols" [value]="products" selectionMode="multiple" [(selection)]="selectedProducts"
+  [paginator]="true" [rows]="4" [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [globalFilterFields]="['name','code','category','quantity']">
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()"
+        class="p-button-success mr-2" pTooltip="XLS" tooltipPosition="bottom"></button> &nbsp; &nbsp;
+      <input type="file" (change)="onUploadFile($event)" pInputText multiple> &nbsp;
+      <button (click)="onDownloadFile()" *ngIf="btntoggle" pButton>Download</button> &nbsp; &nbsp;
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt.filterGlobal(searchValue, 'contains')"
+          placeholder="Search keyword" />
+      </span>
+
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon>
+      </th>
+      <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon>
+      </th>
+      <th pSortableColumn="quantity">Quantity <p-sortIcon field="quantity"></p-sortIcon>
+      </th>
+      <!-- <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th> -->
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product let-rowData>
+    <tr [pSelectableRow]="rowData">
+      <td>{{product.code}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.quantity}}</td>
+      <!-- <td>{{product.price | currency: 'USD'}}</td> -->
+    </tr>
+  </ng-template>  
+</p-table>
+<!-- <div>
+  <input type="file" (change)="onploadFile($event)" pInputText multiple>
+  <button (click)="onDownloadFile()" *ngIf="btntoggle" pButton>Download</button>
+  <button (click)="onDownload()" *ngIf="btntoggle" pButton>Download</button>
+</div> -->

@@ -1,0 +1,142 @@
+<p-card class="flex justify-content-evenly">
+    <form [formGroup]="dataForm" class="ml-3">
+        <div class="formgroup-inline">
+            <div class="field">
+                <label>
+                    <span style="color: red;">*</span> Roll: &nbsp;<br>
+                    <p-radioButton (click)="togStudent()" formControlName="roll" value="Student"></p-radioButton>Student
+                    &nbsp;
+                    <p-radioButton (click)="togEmploye()" formControlName="roll" value="Employee"></p-radioButton>
+                    Employee
+                </label>
+            </div>
+            <div class="field">
+                <label><span *ngIf="showStar" style="color: red;">*</span> User-Id:<br>
+                    <p-inputNumber formControlName="id" [useGrouping]="false" class="p-inputtext-sm"></p-inputNumber>
+                    <br>
+                    <div style="color:red;"
+                        *ngIf="dataForm.controls.id.invalid && dataForm.controls.id.touched || dataForm.controls.id.dirty">
+                        <span *ngIf="dataForm.controls.id.errors?.required"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please
+                            Provide id</span>
+                        <span style="color:rgb(15, 136, 61);" *ngIf="dataForm.controls.id.valid"><i
+                                class="pi pi-check-circle" style="font-size: 2vh"></i> Ok Proceed</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="formgroup-inline">
+            <div class="field">
+                <label><span style="color: red;">*</span> First Name:<br>
+                    <input type="text" formControlName="fName" pInputText class="p-inputtext-sm">
+                    <br>
+                    <div style="color:red;"
+                        *ngIf="dataForm.controls.fName.invalid && dataForm.controls.fName.touched || dataForm.controls.fName.dirty">
+                        <span *ngIf="dataForm.controls.fName.errors?.required"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please Provide<br>First Name</span>
+                        <span *ngIf="dataForm.controls.fName.errors?.minlength"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please Provide<br>First Name</span>
+                        <span *ngIf="dataForm.controls.fName.errors?.pattern"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please
+                            Enter<br>Charactors only</span>
+                        <span style="color:rgb(15, 136, 61);;" *ngIf="dataForm.controls.fName.valid"><i
+                                class="pi pi-check-circle" style="font-size: 2vh"></i> Ok Proceed</span>
+                    </div>
+                </label>
+            </div>
+            <div class="field">
+                <label><span style="color: red;">*</span> Last Name:<br>
+                    <input type="text" formControlName="lName" pInputText class="p-inputtext-sm">
+                    <br>
+                    <div style="color:red;"
+                        *ngIf="dataForm.controls.lName.invalid && dataForm.controls.lName.touched || dataForm.controls.lName.dirty">
+                        <span *ngIf="dataForm.controls.lName.errors?.required"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please Provide<br>Last Name</span>
+                        <span *ngIf="dataForm.controls.lName.errors?.minlength"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please Provide<br>Last Name</span>
+                        <span *ngIf="dataForm.controls.lName.errors?.pattern"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please
+                            Enter<br>Charactors only</span>
+                        <span style="color:rgb(15, 136, 61);;" *ngIf="dataForm.controls.lName.valid"><i
+                                class="pi pi-check-circle" style="font-size: 2vh"></i> Ok Proceed</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="formgroup-inline">
+            <div class="field">
+                <label><span style="color: red;">*</span> Mail-Id:<br>
+                    <input type="email" formControlName="mailId" pInputText class="p-inputtext-sm">
+                    <br>
+                    <div style="color:red;"
+                        *ngIf="dataForm.controls.mailId.invalid && dataForm.controls.mailId.touched || dataForm.controls.mailId.dirty">
+                        <span *ngIf="dataForm.controls.mailId.errors?.required"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please
+                            Provide<br>Mail-Id</span>
+                        <span *ngIf="dataForm.controls.mailId.errors?.pattern"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please
+                            Enter<br>valid Mail</span>
+                        <span style="color:rgb(15, 136, 61);;" *ngIf="dataForm.controls.mailId.valid"><i
+                                class="pi pi-check-circle" style="font-size: 2vh"></i> Ok Proceed</span>
+                    </div>
+                </label>
+            </div>
+            <div class="field">
+                <label><span style="color: red;">*</span> Phone Number:<br>
+                    <input type="text" formControlName="pNumber" pInputText class="p-inputtext-sm">
+                    <!-- <p-inputNumber formControlName="pNumber" [useGrouping]="false"
+                        class="p-inputtext-sm"></p-inputNumber> -->
+                    <br>
+                    <div style="color:red;"
+                        *ngIf="dataForm.controls.pNumber.invalid && dataForm.controls.pNumber.touched || dataForm.controls.pNumber.dirty">
+                        <span *ngIf="dataForm.controls.pNumber.errors?.required"><i
+                                class="pi pi-exclamation-circle"></i> Please
+                            Provide<br>Phone Number</span>
+                        <span *ngIf="dataForm.controls.pNumber.errors?.pattern"><i class="pi pi-exclamation-circle"
+                                style="font-size: 2vh"></i>
+                            Please
+                            Enter<br>Number only</span>
+                        <span
+                            *ngIf="dataForm.controls.pNumber.errors?.minlength || dataForm.controls.pNumber.errors?.maxlength"><i
+                                class="pi pi-exclamation-circle" style="font-size: 2vh"></i>
+                            Phone Number should<br>contain 10 digits</span>
+                        <span style="color:rgb(15, 136, 61);;" *ngIf="dataForm.controls.pNumber.valid"><i
+                                class="pi pi-check-circle" style="font-size: 2vh"></i> Ok Proceed</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="formgroup-inline">
+            <label><span style="color: red;">*</span> Choose an Image:<br>
+                <input type="file" class="p-inputtext-sm ml-6" formContorlName="ChooseImg" accept="image/png, image/jpeg" (change)="selectFiles($event)" pInputText>
+                <!-- <p-fileUpload #fubauto mode="basic" accept="image/png, image/jpeg" (change)="selectFiles($event)" [auto]="true" chooseLabel="Browse"></p-fileUpload> -->
+                <br>
+                <div style="color:red;"
+                    *ngIf="dataForm.controls.ChooseImg?.invalid && dataForm.controls.ChooseImg?.touched || dataForm.controls.ChooseImg?.dirty">
+                    <span *ngIf="dataForm.controls.ChooseImg.errors?.required"><i class="pi pi-exclamation-circle"
+                            style="font-size: 2vh"></i>
+                        Please Choose an Image</span>
+                    <span style="color:rgb(15, 136, 61);" *ngIf="dataForm.controls.ChooseImg.valid"><i
+                            class="pi pi-check-circle" style="font-size: 2vh"></i> Ok Proceed</span>
+                </div>
+            </label>
+        </div>
+        <br>
+        <!-- [disabled]="dataForm.invalid" -->
+        <button pButton type="button" label="Submit" [disabled]="dataForm.invalid" (click)="onClick(dataForm.value)"
+        style="width:95%;" class="p-button-sm"></button>
+        <!-- <p-button  label="Submit" [disabled]="true"  width="150%" styleClass="p-button-sm"
+        (click)="onclick(dataForm.value)" ></p-button> -->
+        <!-- <p-button disabled="true" icon="pi pi-iconName" label="label"></p-button> -->
+    </form>
+    <!-- <img [src]="url" height="200"> -->
+</p-card>

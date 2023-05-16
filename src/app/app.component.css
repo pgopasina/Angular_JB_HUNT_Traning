@@ -1,0 +1,21 @@
+:host ::ng-deep .p-menu {
+    height: 693px;
+    width: 260px;
+}
+
+.router-container {
+    transition: margin 400ms ease;
+    overflow-y: scroll;
+    /* padding: 20px; */
+    width: 100%; 
+}
+/* .grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+  } */
+/* :host ::ng-deep .p-inputnumber-input {
+    width: 30%;
+    } */

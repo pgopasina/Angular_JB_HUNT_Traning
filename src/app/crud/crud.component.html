@@ -1,0 +1,69 @@
+<div appDemo1 class="flex justify-content-evenly">
+    <div class="col-2">
+        <form [formGroup]="formCrud">
+            <label>Id:<br>
+                <input type="text" formControlName="id" [readonly]="readOnly" pInputText class="p-inputtext-sm">
+                <pre></pre>
+                <div style="color:red;"
+                    *ngIf="formCrud.controls.id.invalid && formCrud.controls.id.touched || formCrud.controls.id.dirty">
+                    <span *ngIf="formCrud.controls.id.errors?.required"><i class="pi pi-exclamation-circle"></i> Please
+                        Enter ID</span>
+                    <span *ngIf="formCrud.controls.id.errors?.pattern"><i class="pi pi-exclamation-circle"></i> Please
+                        Enter Number only</span>
+                    <span style="color:rgb(3, 88, 36);" *ngIf="formCrud.controls.id.valid"><i
+                            class="pi pi-check-circle"></i> Ok Proced</span>
+                </div>
+            </label>
+            <label>Name:<br>
+                <input type="text" formControlName="name" pInputText class="p-inputtext-sm">
+                <pre></pre>
+                <div style="color:red;"
+                    *ngIf="formCrud.controls.name.invalid && formCrud.controls.name.touched || formCrud.controls.name.dirty">
+                    <span *ngIf="formCrud.controls.name.errors?.required"><i class="pi pi-exclamation-circle"></i>
+                        Please Enter name</span>
+                    <span *ngIf="formCrud.controls.name.errors?.pattern"><i class="pi pi-exclamation-circle"></i> Please
+                        Enter Charactors only</span>
+                    <span style="color:rgb(3, 88, 36);" *ngIf="formCrud.controls.name.valid"><i
+                            class="pi pi-check-circle"></i> Ok Proced</span>
+                </div>
+            </label>
+            <label>D.O.B:<br>
+                <input type="date" formControlName="dob" pInputText class="p-inputtext-sm" style="width: 190%;">
+                <pre></pre>
+                <div style="color:red;"
+                    *ngIf="formCrud.controls.dob.invalid && formCrud.controls.dob.touched || formCrud.controls.dob.dirty">
+                    <span *ngIf="formCrud.controls.dob.errors?.required"><i class="pi pi-exclamation-circle"></i> Please
+                        Enter D.O.B</span>
+                    <span style="color:rgb(3, 88, 36);" *ngIf="formCrud.controls.dob.valid"><i
+                            class="pi pi-check-circle"></i> Ok Proced</span>
+                </div>
+            </label>
+            <p-button class="btn-center" [disabled]="formCrud.invalid" label="Submit" (click)="onclick(formCrud.value)" styleClass="p-button-sm">
+            </p-button>
+            &nbsp;
+            <p-button class="btn-center" label="Update" (click)="onUpdate()" styleClass="p-button-sm"></p-button>
+        </form>
+    </div>
+    <p-card>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+            <tr *ngFor="let n of Data">
+                <td>{{n.id}}</td>
+                <td>{{n.name}}</td>
+                <td>{{n.dob}}</td>
+                <td>
+                    <p-button label="Delete" (click)="delete(n)" styleClass="p-button-sm"></p-button>
+                </td>
+                <td>
+                    <p-button label="Edit" (click)="Patch(n)" styleClass="p-button-sm"></p-button>
+                </td>
+            </tr>
+        </table>
+    </p-card>
+</div>

@@ -1,0 +1,8 @@
+<div class="content">
+    <p-galleria [value]="image" [containerStyle]="{'max-width': '700px'}"
+        [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.previewImageSrc" style="width: 100%; display: block;">
+        </ng-template>
+    </p-galleria>
+</div>

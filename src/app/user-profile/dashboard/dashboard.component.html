@@ -1,0 +1,88 @@
+<div *ngIf="loader">
+    <p-progressSpinner class="flex align-content-center justify-content-center mt-8 pt-8" [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="5" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</div>
+
+<div class="formgroup-inline flex align-content-between justify-content-between p-4 bg-gray-200 border-round" *ngIf="!loader">
+    <div class="field">
+        <p-card>
+            <span class="pi pi-map-marker text-l"> Miracle City</span>
+            <!-- {{weatherData.name | uppercase}} -->
+            <div>
+                <div class="formgroup-inline">
+                    <ul style="list-style-type:none;" class="field">
+                        <li class="text-xl font-bold">{{day}}<br><span class="text-sm font-light">{{date | date}}</span>
+                        </li>
+                    </ul>
+                    <ul style="list-style-type:none;" class="field">
+                        <li>Currently<br><span
+                                class="font-bold text-2xl text-red-500">{{weatherData.main.temp}}<sup>o</sup></span>
+                        </li>
+                    </ul>
+                    <ul style="list-style-type:none;" class="field">
+                        <li><img src="assets/photos/cloud.png" width="90px"></li>
+                    </ul>
+                </div>
+                <span class="text-xl"><img [src]="icon"> {{weatherData.weather[0].description}}</span>
+                <br>
+                <div class="formgroup-inline">
+                    <ul style="list-style-type:none;" class="field text-sm font-semibold">
+                        <li>Wind<span class="pl-8">{{weatherData.wind.speed}}km/h</span></li>
+                        <li>Sunrise<span class="pl-7"> {{sunRise}}</span></li>
+                        <li>Humidity<span class="pl-6"> &nbsp;{{weatherData.main.humidity}}%</span>
+                        </li>
+                    </ul>
+                    <ul style="list-style-type:none;" class="field text-sm font-semibold">
+                        <li>Sunset<span class="pl-7">{{sunSet}}</span></li>
+                        <li>Visbility<span class="pl-6"> &nbsp;{{weatherData.visibility}}m/h</span>
+                        </li>
+                        <li>preciptation<span class="pl-4">{{weatherData.clouds.all}}%</span></li>
+                    </ul>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div class="field">
+        <p-card class="flex align justify-content-center">
+            <div class="grid">
+                <div class="col bg-gray-200 m-1 p-3 border-round">
+                    <p class="text-xl font-bold">{{day1}}<br><span class="text-sm font-light">{{tomorrow | date}}</span>
+                    </p>
+                    <img src="assets/photos/cloud.png" width="70px">
+                    <br><br>
+                    <p class="font-semibold text-l">{{weatherData.main.temp}}<sup>o</sup></p>
+                </div>
+                <div class="col bg-gray-200 m-1 p-3 border-round">
+                    <p class="text-xl font-bold">{{day2}}<br><span class="text-sm font-light">{{dayAfterTomorrow |
+                            date}}</span></p>
+                    <img src="assets/photos/cloud.png" width="70px">
+                    <br><br>
+                    <p class="font-semibold text-l">{{weatherData.main.temp}}<sup>o</sup></p>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div class="field flex justify-content-center">
+        <p-card>
+            <div class="flex justify-content-center font-semibold text-4xl">{{date | date:'shortTime'}}</div>
+            <br>
+            <div class="flex justify-content-center pi pi-clock font-semibold"> &nbsp;IST ZONE</div>
+            <br>
+            <div class="formgroup-inline font-semibold text-xl">
+                <ul style="list-style-type:none;" class="field">
+                    <li class="pb-4">{{date | date:'short':'UTC -5' | date:'shortTime'}} <span
+                            class="text-base font-normal">CST</span></li>
+                    <li>{{date | date:'short':'UTC -4' | date:'shortTime'}} <span
+                            class="text-base font-normal">EST</span>
+                    </li>
+                </ul>
+                <ul style="list-style-type:none;" class="field">
+                    <li class="pb-4">{{date | date:'short':'UTC -7' | date:'shortTime'}} <span
+                            class="text-base font-normal">PST</span></li>
+                    <li>{{date | date:'short':'UTC -6' | date:'shortTime'}} <span
+                            class="text-base font-normal">MST</span>
+                    </li>
+                </ul>
+            </div>
+        </p-card>
+    </div>
+</div>

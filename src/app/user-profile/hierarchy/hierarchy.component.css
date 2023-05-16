@@ -1,0 +1,40 @@
+ul {
+    list-style-type: none;
+}
+
+/* li{
+    background-color: rgb(0, 55, 128);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 3px solid white;
+    margin: 10px;
+    width: fit-content;
+    padding-right: 10px;
+
+} */
+
+:host ::ng-deep .p-chip.custom-chip {
+    background: transparent;
+    color: white;
+}
+
+:host ::ng-deep .p-tree {
+    border: 0px;
+    background: transparent !important;
+    color: #ffffff;
+    padding: 0px;
+
+}
+
+.borderClass {
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    width: fit-content;
+}
+
+:host ::ng-deep .p-tree .p-tree-container .p-treenode .p-treenode-content {
+    border: 0px solid white;
+    border-radius: 0px;
+    transition: box-shadow 0.2s;
+    padding: 0.5rem;
+}

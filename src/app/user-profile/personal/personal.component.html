@@ -1,0 +1,178 @@
+<div class="flex align-items-center justify-content-center col-12" *ngIf="toggle">
+    <p-panel header="Personal" [style]="{'width': '100%'}">
+        <ng-template pTemplate="icons">
+            <button pButton title="Edit" (click)="profileEdit()" icon="pi pi-pencil"
+                class="p-button-rounded p-button-secondary p-button-text"></button>
+        </ng-template>
+        <!-- <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Alias Name</th>
+                <th>Gender</th>
+                <th>Marital Status</th>
+                <th>Employee ID</th>
+                <th>Physically Challenged</th>
+                <th>Blood Group</th>
+            </tr>
+            <tr>
+                <td>{{staticData.firstName}}</td>
+                <td>{{staticData.lastName}}</td>
+                <td>{{staticData.aliasName}}</td>
+                <td>{{staticData.gender}}</td>
+                <td>{{staticData.maritalStatus}}</td>
+                <td>{{staticData.employeeID}}</td>
+                <td>{{staticData.physicallyChallenged}}</td>
+                <td>{{staticData.bloodGroup}}</td>
+            </tr>
+        </table> -->
+        <div class="formgroup-inline">
+            <ul style="list-style-type:none;" class="field">
+                <li>First Name:<br><span
+                       class="listStyles">{{staticData.firstName}}</span>
+                </li>
+                <li>Employee ID:<br><span
+                       class="listStyles">{{staticData.employeeID}}</span>
+                </li>
+            </ul>
+            <ul style="list-style-type:none;" class="field">
+                <li>Last Name:<br><span
+                       class="listStyles">{{staticData.lastName}}</span>
+                </li>
+                <li>Blood Group:<br><span
+                       class="listStyles">{{staticData.bloodGroup}}</span>
+                </li>
+            </ul>
+            <ul style="list-style-type:none;" class="field">
+                <li>Alias Name:<br><span
+                       class="listStyles">{{staticData.aliasName}}</span>
+                </li>
+                <li>Physically Challenged:<br><span
+                       class="listStyles">{{staticData.physicallyChallenged}}</span>
+                </li>
+            </ul>
+            <ul style="list-style-type:none;" class="field">
+                <li>Gender:<br><span
+                       class="listStyles">{{staticData.gender}}</span>
+                </li>
+                <li>Marital Status:<br><span
+                       class="listStyles">{{staticData.maritalStatus}}</span>
+                </li>
+            </ul>
+        </div>
+    </p-panel>
+</div>
+
+<div class="flex align-items-center justify-content-center col-12" *ngIf="!toggle">
+    <p-panel header="Personal">
+        <ng-template pTemplate="icons">
+            <button pButton (click)="onSave(form.value)" title="Save" icon="pi pi-check"
+                class="p-button-rounded p-button-secondary p-button-text"></button>
+            <button pButton (click)="onCancel()" title="Cancel" icon="pi pi-times"
+                class="p-button-rounded p-button-secondary p-button-text"></button>
+        </ng-template>
+        <form [formGroup]="form">
+            <div class="formgroup-inline">
+                <label class="field"><span style="color: red; font-weight: bolder;">* </span>First Name:<br>
+                    <input type="text" formControlName="firstName" pInputText class="p-inputtext-sm" />
+                    <div style="color:red;"
+                        *ngIf="form.controls.firstName.invalid && form.controls.firstName.touched || form.controls.firstName.dirty">
+                        <span *ngIf="form.controls.firstName.errors?.required"><i class="pi pi-exclamation-circle"></i>
+                            Please Provide<br>First Name</span>
+                        <span *ngIf="form.controls.firstName.errors?.minlength"><i class="pi pi-exclamation-circle"></i>
+                            Please Provide<br>First Name</span>
+                        <span *ngIf="form.controls.firstName.errors?.pattern"><i class="pi pi-exclamation-circle"></i>
+                            Please
+                            Enter<br>Charactors only</span>
+                    </div>
+                </label>
+                <label class="field"><span style="color: red; font-weight: bolder;">* </span>Last Name:<br>
+                    <input type="text" formControlName="lastName" pInputText class="p-inputtext-sm" />
+                    <div style="color:red;"
+                        *ngIf="form.controls.lastName.invalid && form.controls.lastName.touched || form.controls.lastName.dirty">
+                        <span *ngIf="form.controls.lastName.errors?.required"><i class="pi pi-exclamation-circle"></i>
+                            Please Provide<br>First Name</span>
+                        <span *ngIf="form.controls.lastName.errors?.minlength"><i class="pi pi-exclamation-circle"></i>
+                            Please Provide<br>First Name</span>
+                        <span *ngIf="form.controls.lastName.errors?.pattern"><i class="pi pi-exclamation-circle"></i>
+                            Please
+                            Enter<br>Charactors only</span>
+                    </div>
+                </label>
+                <label class="field">Alias Name:<br>
+                    <input type="text" formControlName="aliasName" pInputText class="p-inputtext-sm" />
+                </label>
+                <label class="field"><span style="color: red; font-weight: bolder;">* </span>Gender:<br>
+                    <p-dropdown [options]="Gender"  formControlName="gender"
+                        placeholder="Select Option" optionLabel="name" optionValue="name" [showClear]="true" class="p-inputtext-sm">
+                    </p-dropdown>
+                    <div style="color:red;"
+                    *ngIf="form.controls.gender.invalid && form.controls.gender.touched || form.controls.gender.dirty">
+                    <span *ngIf="form.controls.gender.errors?.required"><i
+                            class="pi pi-exclamation-circle"></i>
+                        Please Provide<br>Gender</span>
+                </div>
+                </label>
+            </div>
+            <div class="formgroup-inline">
+                <label class="field">Blood Group:<br>
+                    <p-dropdown [options]="bloodGroup" formControlName="bloodGroup"
+                    placeholder="Select Option" optionLabel="name" optionValue="name" [showClear]="true" class="p-inputtext-sm">
+                </p-dropdown>
+                    <div style="color:red;"
+                        *ngIf="form.controls.bloodGroup.invalid && form.controls.bloodGroup.touched || form.controls.bloodGroup.dirty">
+                        <span *ngIf="form.controls.bloodGroup.errors?.required"><i class="pi pi-exclamation-circle"></i>
+                            Please
+                            Provide<br>Blood Group</span>
+                    </div>
+                </label>
+                <label class="field"><span style="color: red; font-weight: bolder;">* </span>Employee ID:<br>
+                    <input type="text" formControlName="employeeID" pInputText class="p-inputtext-sm" />
+                    <div style="color:red;"
+                        *ngIf="form.controls.employeeID.invalid && form.controls.employeeID.touched || form.controls.employeeID.dirty">
+                        <span *ngIf="form.controls.employeeID.errors?.required"><i class="pi pi-exclamation-circle"></i>
+                            Please
+                            Provide<br>Emp Id</span>
+                        <span *ngIf="form.controls.employeeID.errors?.pattern"><i class="pi pi-exclamation-circle"></i>
+                            Please
+                            Enter<br>Numbers only</span>
+                        <span
+                            *ngIf="form.controls.employeeID.errors?.minlength || form.controls.employeeID.errors?.maxlength"><i
+                                class="pi pi-exclamation"></i>
+                            Phone Number should<br>contain 4 digits</span>
+                    </div>
+                </label>
+                <label class="field"><span style="color: red; font-weight: bolder;">* </span>Physically Challenged:<br>
+                    <!-- <input type="text" formControlName="physicallyChallenged" pInputText class="p-inputtext-sm" /> -->
+                    <p-dropdown [options]="physicalValue" formControlName="physicallyChallenged"
+                        placeholder="Select Option" optionLabel="name" optionValue="name" [showClear]="true" class="p-inputtext-sm">
+                    </p-dropdown>
+                    <div style="color:red;"
+                        *ngIf="form.controls.physicallyChallenged.invalid && form.controls.physicallyChallenged.touched || form.controls.physicallyChallenged.dirty">
+                        <span *ngIf="form.controls.physicallyChallenged.errors?.required"><i
+                                class="pi pi-exclamation-circle"></i>
+                            Please Provide<br>Physically Challenged</span>
+                    </div>
+                </label>
+                <label class="field">Marital Status:<br>
+                    <p-dropdown [options]="Status" formControlName="maritalStatus"
+                        placeholder="Select Option" optionLabel="name" optionValue="name" [showClear]="true" class="p-inputtext-sm">
+                    </p-dropdown>
+                    <div style="color:red;"
+                        *ngIf="form.controls.maritalStatus.invalid && form.controls.maritalStatus.touched || form.controls.maritalStatus.dirty">
+                        <span *ngIf="form.controls.maritalStatus.errors?.required"><i
+                                class="pi pi-exclamation-circle"></i>
+                            Please Provide<br>Marital Status</span>
+                    </div>
+                </label>
+            </div>
+            <!-- <div class="formgroup-inline">
+                <label class="field"><br>
+                    <p-button (click)="onCancel()" styleClass="p-button-sm">cancel</p-button>
+                    &nbsp; &nbsp;
+                    <p-button (click)="onSave(form1.value)" styleClass="p-button-sm">Save</p-button>
+                </label>
+            </div> -->
+        </form>
+    </p-panel>
+</div>

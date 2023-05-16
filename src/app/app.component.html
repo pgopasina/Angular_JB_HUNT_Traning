@@ -1,0 +1,39 @@
+<!-- <div  class="navBar" style="border: 1px solid black; background-color: rgb(36, 36, 36);padding: 10px;border-radius:10px;">
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/file" >Files-up/download</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/image" >Image Slider</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/url" >URL-Validation</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/crud" >CRUD-Operations</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/login2google" >Login With Google</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/gmaps" >Google Maps</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onVisableMenu()" routerLink="/dataForm" >Data-Form</p-button> &nbsp;
+    <p-button styleClass="p-button-sm" (click)="onDisableMenu()" routerLink="/userProfile" >UserProfile</p-button> &nbsp;
+    </div>
+    <pre></pre> -->
+<!-- <div class="grid">
+        <div class="col-fixed">
+            <p-menu></p-menu>
+        </div>
+        <div class="col" >
+            <router-outlet></router-outlet>
+        </div>
+    </div> -->
+<div class="fixed top-0 left-0 px-4 py-3 w-full overflow-auto bg-blue-500 text-white font-bold">
+    <!-- <div class="grid top-0 left-0 w-full p-3 bg-blue-600 text-white font-bold"> -->
+    <img src="assets/photos/angular-icon.png" style="width: 30px;"> Angular Tasks
+</div>
+<!-- <div class="grid" style="overflow-x: hidden;overflow-y: hidden;">
+    <div class="col-fixed">
+        <p-menu [model]="items"></p-menu>
+    </div>
+    <div class="col">
+        <router-outlet></router-outlet>
+    </div>
+</div> -->
+<div class="flex overflow-hidden">
+    <div class="flex-none flex align-items-center mt-7">
+        <p-menu [model]="items"></p-menu>
+    </div>
+    <p-scrollPanel class="flex-grow-1 flex align-content-start justify-content-center m-3 mt-8" [style]="{width:'150%', height: '600px'}">
+        <router-outlet></router-outlet>
+    </p-scrollPanel>
+</div>

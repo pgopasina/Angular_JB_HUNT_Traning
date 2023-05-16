@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-demo-44d44": {
+      "hosting": {
+        "FirebaseDemo": [
+          "fir-demo-44d44"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-demo-44d44"
+  }
+}

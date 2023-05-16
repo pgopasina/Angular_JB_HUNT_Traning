@@ -1,0 +1,21 @@
+<p-card class="mt-6">
+    <div class="login-wrapper">
+        <form [formGroup]="myForm" class="p-inputgroup col-6">
+            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+            <input formControlName="url" type="search" placeholder="URL" pInputText>
+            <br>
+            <!-- <button type="button" (click)="onSearch(myForm.value)" pButton pRipple label="validate-url"></button> -->
+        </form>
+    </div>
+    <div class="login-wrapper" style="color:red;"
+            *ngIf="myForm.controls.url.invalid && myForm.controls.url.touched || myForm.controls.url.dirty">
+            <span style="background-color: white;" *ngIf="myForm.controls.url.errors?.required"><i
+                    class="pi pi-exclamation-circle"></i> Please Enter URL</span>
+            <span style="background-color: white;" *ngIf="myForm.controls.url.errors?.pattern"><i
+                    class="pi pi-exclamation-circle"></i> Please Enter a valid
+                URL</span>
+            <span style="background-color: white;color:rgb(14, 163, 6);" *ngIf="myForm.controls.url.valid"><i
+                    class="pi pi-check-circle"></i> valid
+                URL</span>
+        </div>
+</p-card>

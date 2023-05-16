@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "name": "Venkata Ram Prasad Kandregula",
+            "Corp Name": "vkandregula",
+            "designation": "Team Manager",
+            "report To": "jduvvuri",
+            "phone Number": 9603132459,
+            "image": "assets/photos/vkandregula.png",
+            "children": [
+                {
+                    "name": "John Vesli Chitri",
+                    "Corp Name": "jchitri",
+                    "designation": "Team Lead",
+                    "report To": "vkandregula",
+                    "phone Number": 8466874487,
+                    "image": "assets/photos/jchitri.png",
+                    "children": [
+                        {
+                            "name": "Prudhvi Gopasina",
+                            "Corp Name": "pgopasina",
+                            "designation": "Software Trainee",
+                            "report To": "jchitri",
+                            "phone Number": 9494902594,
+                            "image": "assets/photos/pgopasina.png"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

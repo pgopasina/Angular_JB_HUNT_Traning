@@ -1,0 +1,32 @@
+<!-- <p>Narsipatnam: cordinates:
+Latitude: 17.668435
+Longitude : 82.6034867</p>
+<div class="center_map">
+    <div class="box">
+        <form [formGroup]="form" class="center_map">
+            <div class="formgroup-inline">
+                <div class="field">
+                    <label>Latitude:</label>
+                    <br>
+                    <input type="text" formControlName="Latitude" pInputText class="p-inputtext-sm">
+                </div>
+                <div class="field">
+                    <label>Longitude:</label>
+                    <br>
+                    <input type="text" formControlName="Longitude" pInputText class="p-inputtext-sm">
+                </div>
+                <div class="field">
+                    <label></label>
+                    <br>
+                    <p-button label="Get Location" (click)="getLocation()" styleClass="p-button-sm"></p-button>
+                </div>
+            </div>
+        </form>
+        <div>
+            <google-map height="400px" width="900px" [zoom]="zoom" [center]="center">
+                <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
+                    [options]="markerOptions"></map-marker>
+            </google-map>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,17 @@
+span{
+    background-color: rgb(251, 216, 163);
+    font-size: x-large;
+    font-weight: bolder;
+    font-family: 'Times New Roman';
+    border-radius: 5px;
+    padding: 5px;
+}
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:host ::ng-deep.p-card .p-card-content {
+    padding: 0 0;
+}

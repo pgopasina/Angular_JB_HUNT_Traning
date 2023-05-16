@@ -1,0 +1,56 @@
+<div appDemo1>
+    <p-card>
+        <p-button class="flex align-items-center justify-content-center" (click)="onOdd = !onOdd" label="Click Here"
+            styleClass="p-button-sm"></p-button>
+        <br>
+        <tr *ngIf="!onOdd">
+            <td [ngStyle]="{backgroundColor : odd % 2 !==0? 'rgb(73, 104, 206)':'transparent'}"
+                [ngClass]="{oddColor: odd %2 !==0}" *ngFor="let odd of oddNumbers">
+                {{odd}}
+            </td>
+        </tr>
+        <tr *ngIf="onOdd">
+            <td [ngStyle]="{backgroundColor : 'rgb(237, 238, 170)'}" [ngClass]="{evenColor: even %2 ==0}"
+                *ngFor="let even of evenNumbers">
+                {{even}}
+            </td>
+        </tr>
+        <br>
+        <div [ngSwitch]="value">
+            <p *ngSwitchCase="5">FIVE</p>
+            <p *ngSwitchCase="10">TEN</p>
+            <p *ngSwitchCase="15">FIFTEEN</p>
+        </div>
+        <span><input type="text" class="p-inputtext-sm" [(ngModel)]="data" placeholder="Enter Something"
+                pInputText /></span>
+        <!-- <tr>
+        <td [ngStyle]="{backgroundColor : number % 2 ==0? 'rgb(237, 238, 170)':'rgb(73, 104, 206)'}"
+            [ngClass]="numberColor? 'evenColor': 'oddColor'" *ngFor="let number of numbers">
+            {{number}}
+        </td>
+    </tr> -->
+        <hr>
+        <span><strong>Observable:</strong>
+            <br>
+            {{dateUsingObservable}}
+        </span><br>
+        <span><strong>Subject:</strong>
+            <br>
+            {{dateUsingSubject}}
+        </span><br>
+        <span><strong>BehaviorSubject:</strong>
+            <br>
+            {{dateUsingBSubject}}
+        </span>
+
+        <hr>
+        <div style="border: 3px solid rgb(90, 150, 1);width: fit-content;padding: 10px;">
+            <h6>This is Parent component</h6>
+            <p-button (click)="byClick()" label="Click Here"></p-button>
+            <br>
+            {{childData}}
+            <app-skills [data]="data" *ngIf="switch" (event)="getData($event)"></app-skills>
+        </div>
+        <div>{{ID}}</div>
+    </p-card>
+</div>
